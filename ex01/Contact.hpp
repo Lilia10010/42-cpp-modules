@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Contact.hpp                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lpaula-n <lpaula-n@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/12/13 19:32:43 by lpaula-n          #+#    #+#             */
+/*   Updated: 2025/12/13 19:32:45 by lpaula-n         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef CONTACT_HPP
 #define CONTACT_HPP
 
@@ -21,11 +33,7 @@ class Contact {
         void setPhoneNumber(const std::string &value);
         void setDarkestSecret(const std::string &value);
 
-        /*
-        MÉTODO GETTER:
-        - usado para ler (acessar) o valor de um atributo privado.
-        - retorna uma referência constante para evitar cópia desnecessária.
-    */
+        //retorna uma referência constante para evitar cópia desnecessária.
         const std::string &getFirstName() const;
         const std::string &getLastName() const;
         const std::string &getNickname() const;

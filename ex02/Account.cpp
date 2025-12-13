@@ -1,14 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Account.cpp                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lpaula-n <lpaula-n@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/12/13 19:30:39 by lpaula-n          #+#    #+#             */
+/*   Updated: 2025/12/13 19:30:41 by lpaula-n         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Account.hpp"
 #include <iostream>
 #include <iomanip>
 #include <ctime>
 
-/*
-|--------------------------------------------------------------------------
-| Variáveis estáticas (pertencem à classe, não ao objeto)
-|--------------------------------------------------------------------------
-*/
-// variáveis estáticas que pertencem a classe
+
 int Account::_nbAccounts = 0;
 int Account::_totalAmount = 0;
 int Account::_totalNbDeposits = 0;
@@ -20,13 +27,7 @@ int Account::getTotalAmount(void) { return _totalAmount; }
 int Account::getNbDeposits(void) { return _totalNbDeposits; }
 int Account::getNbWithdrawals(void) { return _totalNbWithdrawals; }
 
-/*
-|--------------------------------------------------------------------------
-| Função estática privada
-| Imprime o timestamp no formato:
-| [YYYYMMDD_HHMMSS]
-|--------------------------------------------------------------------------
-*/
+//p imprimir o timestamp no formato: | [YYYYMMDD_HHMMSS]
 void Account::_displayTimestamp(void) {
 	std::time_t now = std::time(NULL);
 	std::tm *lt = std::localtime(&now);
@@ -49,11 +50,9 @@ Account::Account(int initial_deposit)
 	  _nbDeposits(0),
 	  _nbWithdrawals(0)
 {
-	// Atualiza dados globais
 	_nbAccounts++;
 	_totalAmount += initial_deposit;
 
-	// Log
 	_displayTimestamp();
 	std::cout << "index:" << _accountIndex
 			  << ";amount:" << _amount
@@ -94,11 +93,9 @@ void Account::displayStatus(void) const {
 void Account::makeDeposit(int deposit) {
 	int previous_amount = _amount;
 
-	// Atualiza valores
 	_amount += deposit;
 	_nbDeposits++;
 
-	// Atualiza valores globais
 	_totalAmount += deposit;
 	_totalNbDeposits++;
 
