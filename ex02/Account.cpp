@@ -1,0 +1,144 @@
+#include "Account.hpp"
+#include <iostream>
+#include <iomanip>
+#include <ctime>
+
+/*
+|--------------------------------------------------------------------------
+| Variáveis estáticas (pertencem à classe, não ao objeto)
+|--------------------------------------------------------------------------
+*/
+// variáveis estáticas que pertencem a classe
+int Account::_nbAccounts = 0;
+int Account::_totalAmount = 0;
+int Account::_totalNbDeposits = 0;
+int Account::_totalNbWithdrawals = 0;
+
+
+int Account::getNbAccounts(void) { return _nbAccounts; }
+int Account::getTotalAmount(void) { return _totalAmount; }
+int Account::getNbDeposits(void) { return _totalNbDeposits; }
+int Account::getNbWithdrawals(void) { return _totalNbWithdrawals; }
+
+/*
+|--------------------------------------------------------------------------
+| Função estática privada
+| Imprime o timestamp no formato:
+| [YYYYMMDD_HHMMSS]
+|--------------------------------------------------------------------------
+*/
+void Account::_displayTimestamp(void) {
+	std::time_t now = std::time(NULL);
+	std::tm *lt = std::localtime(&now);
+
+	std::cout << "["
+			  << (lt->tm_year + 1900)
+			  << std::setw(2) << std::setfill('0') << (lt->tm_mon + 1)
+			  << std::setw(2) << std::setfill('0') << lt->tm_mday
+			  << "_"
+			  << std::setw(2) << std::setfill('0') << lt->tm_hour
+			  << std::setw(2) << std::setfill('0') << lt->tm_min
+			  << std::setw(2) << std::setfill('0') << lt->tm_sec
+			  << "] ";
+}
+
+// construtor
+Account::Account(int initial_deposit)
+	: _accountIndex(_nbAccounts),
+	  _amount(initial_deposit),
+	  _nbDeposits(0),
+	  _nbWithdrawals(0)
+{
+	// Atualiza dados globais
+	_nbAccounts++;
+	_totalAmount += initial_deposit;
+
+	// Log
+	_displayTimestamp();
+	std::cout << "index:" << _accountIndex
+			  << ";amount:" << _amount
+			  << ";created"
+			  << std::endl;
+}
+
+// destrutor
+Account::~Account(void) {
+	_displayTimestamp();
+	std::cout << "index:" << _accountIndex
+			  << ";amount:" << _amount
+			  << ";closed"
+			  << std::endl;
+}
+
+//infos globais
+void Account::displayAccountsInfos(void) {
+	_displayTimestamp();
+	std::cout << "accounts:" << _nbAccounts
+			  << ";total:" << _totalAmount
+			  << ";deposits:" << _totalNbDeposits
+			  << ";withdrawals:" << _totalNbWithdrawals
+			  << std::endl;
+}
+
+// estado individual da conta
+void Account::displayStatus(void) const {
+	_displayTimestamp();
+	std::cout << "index:" << _accountIndex
+			  << ";amount:" << _amount
+			  << ";deposits:" << _nbDeposits
+			  << ";withdrawals:" << _nbWithdrawals
+			  << std::endl;
+}
+
+// deposito
+void Account::makeDeposit(int deposit) {
+	int previous_amount = _amount;
+
+	// Atualiza valores
+	_amount += deposit;
+	_nbDeposits++;
+
+	// Atualiza valores globais
+	_totalAmount += deposit;
+	_totalNbDeposits++;
+
+	_displayTimestamp();
+	std::cout << "index:" << _accountIndex
+			  << ";p_amount:" << previous_amount
+			  << ";deposit:" << deposit
+			  << ";amount:" << _amount
+			  << ";nb_deposits:" << _nbDeposits
+			  << std::endl;
+}
+
+//saque
+bool Account::makeWithdrawal(int withdrawal) {
+	int previous_amount = _amount;
+
+	_displayTimestamp();
+	std::cout << "index:" << _accountIndex
+			  << ";p_amount:" << previous_amount;
+
+	if (withdrawal > _amount) {
+		std::cout << ";withdrawal:refused" << std::endl;
+		return false;
+	}
+
+	_amount -= withdrawal;
+	_nbWithdrawals++;
+
+	_totalAmount -= withdrawal;
+	_totalNbWithdrawals++;
+
+	std::cout << ";withdrawal:" << withdrawal
+			  << ";amount:" << _amount
+			  << ";nb_withdrawals:" << _nbWithdrawals
+			  << std::endl;
+
+	return true;
+}
+
+// retorno do saldo atual
+int Account::checkAmount(void) const {
+	return _amount;
+}

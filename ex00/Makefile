@@ -16,7 +16,7 @@ NL		:= \n
 
 all: $(NAME)
 
-$(NAME): $(LIBFT) $(OBJ)
+$(NAME): $(OBJ)
 	@$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
 	@echo "$(NL)$(GREEN)Build completed successfully: $(NAME)$(RESET)"
 

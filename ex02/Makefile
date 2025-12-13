@@ -1,9 +1,9 @@
-NAME = phonebook
+NAME = account
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 RM = rm -f
 
-SRCS = main.cpp PhoneBook.cpp Contact.cpp
+SRCS = Account.cpp tests.cpp
 OBJ_DIR = obj
 OBJ			:= $(patsubst ./src/%.c, $(OBJ_DIR)/%.o, $(SRCS))
 
