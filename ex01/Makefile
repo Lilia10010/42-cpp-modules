@@ -1,9 +1,9 @@
-NAME = megaphone
+NAME = phonebook
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 RM = rm -f
 
-SRCS = megaphone.cpp
+SRCS = main.cpp PhoneBook.cpp Contact.cpp
 OBJ_DIR = obj
 OBJ			:= $(patsubst ./src/%.c, $(OBJ_DIR)/%.o, $(SRCS))
 
