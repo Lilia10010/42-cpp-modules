@@ -6,7 +6,7 @@
 /*   By: lpaula-n <lpaula-n@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 19:32:01 by lpaula-n          #+#    #+#             */
-/*   Updated: 2025/12/13 19:32:02 by lpaula-n         ###   ########.fr       */
+/*   Updated: 2025/12/13 20:25:28 by lpaula-n         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,6 @@ std::string PhoneBook::askAndRead(const std::string &prompt) const
 void    PhoneBook::addContact()
 {
     Contact newContact;
-    std::string input;
 
     newContact.setFirstName(askAndRead("Fist name: "));
     newContact.setLastName(askAndRead("Last name: "));
@@ -52,15 +51,14 @@ void    PhoneBook::addContact()
     newContact.setPhoneNumber(askAndRead("Phone number: "));
     newContact.setDarkestSecret(askAndRead("Darkest secret: "));
 
-    int indexContact = (count < 8 ? count : oldContact);
-    contacts[indexContact] = newContact;
-
+    contacts[oldContact] = newContact;
+    
     if (count < 8)
         count ++;
-    else
-        oldContact = (oldContact + 1) % 8;
 
+    oldContact = (oldContact + 1) % 8;    
     std::cout << "Contact added successfully" << std::endl;
+
 }
 
 void    PhoneBook::printContactTable() const
@@ -118,7 +116,7 @@ void PhoneBook::searchContacts() const
     std::getline(std::cin, input);
 
     //istringstream permite tratar uma string como fluxo
-    //Convertemos de forma controlada
+    //CONVERTE de forma controlada
     std::istringstream iss(input);
     iss >> index;
 
