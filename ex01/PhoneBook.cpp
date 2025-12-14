@@ -6,7 +6,7 @@
 /*   By: lpaula-n <lpaula-n@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 19:32:01 by lpaula-n          #+#    #+#             */
-/*   Updated: 2025/12/13 20:25:28 by lpaula-n         ###   ########.fr       */
+/*   Updated: 2025/12/13 22:50:25 by lpaula-n         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include <iostream>
 #include <iomanip>
 #include <sstream>
+#include <cctype>
 
 PhoneBook::PhoneBook() : count(0), oldContact(0) {}
 
@@ -22,6 +23,37 @@ std::string PhoneBook::truncateField(const std::string &str) const
     if(str.length() > 10)
         return str.substr(0, 9) +  ".";
     return str;
+}
+
+bool PhoneBook::isValidPhoneNumber(const std::string &str) const
+{
+    if (str.empty())
+        return (false);
+    for (size_t i = 0; i < str.length(); ++i)
+    {
+        if (!std::isdigit(str[i]))
+        {
+            std::cout << "Invalid phone number. Use digits only." << std::endl;
+            return (false);
+        }
+    }
+    if (str.length() < 3 || str.length() > 15)
+    {
+        std::cout << "Invalid phone number. [Min 3 digits] [Max 15 digits]" << std::endl;
+        return (false);
+    }
+        
+    return (true);
+}
+
+bool    PhoneBook::isOnlyWhitespace(const std::string &str) const
+{
+    for (size_t i = 0; i < str.length(); ++i)
+    {
+        if (!std::isspace(str[i]))
+            return (false);
+    }
+    return (true);
 }
 
 std::string PhoneBook::askAndRead(const std::string &prompt) const
@@ -33,12 +65,26 @@ std::string PhoneBook::askAndRead(const std::string &prompt) const
         std::cout << prompt;
         std::getline(std::cin, input);
         
-        if (!input.empty())
-            return input;
+        if (!input.empty() && !isOnlyWhitespace(input))
+            return (input);
         
         std::cout << "Field cannot be empty. Try again!" << std::endl;
     }
 
+}
+
+std::string PhoneBook::askAndReadNumber(const std::string &prompt) const
+{
+    std::string input;
+
+    while (true)
+    {
+        std::cout << prompt;
+        std::getline(std::cin, input);
+
+        if (isValidPhoneNumber(input))
+            return input;
+    }
 }
 
 void    PhoneBook::addContact()
@@ -48,7 +94,7 @@ void    PhoneBook::addContact()
     newContact.setFirstName(askAndRead("Fist name: "));
     newContact.setLastName(askAndRead("Last name: "));
     newContact.setNickname(askAndRead("Nickname: "));
-    newContact.setPhoneNumber(askAndRead("Phone number: "));
+    newContact.setPhoneNumber(askAndReadNumber("Phone number: "));
     newContact.setDarkestSecret(askAndRead("Darkest secret: "));
 
     contacts[oldContact] = newContact;
@@ -115,8 +161,6 @@ void PhoneBook::searchContacts() const
     std::cout << "Enter the index: " << std::endl;
     std::getline(std::cin, input);
 
-    //istringstream permite tratar uma string como fluxo
-    //CONVERTE de forma controlada
     std::istringstream iss(input);
     iss >> index;
 

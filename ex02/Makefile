@@ -6,7 +6,7 @@
 #    By: lpaula-n <lpaula-n@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/12/13 19:31:18 by lpaula-n          #+#    #+#              #
-#    Updated: 2025/12/13 19:31:20 by lpaula-n         ###   ########.fr        #
+#    Updated: 2025/12/13 22:18:50 by lpaula-n         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,32 +17,33 @@ RM = rm -f
 
 SRCS = Account.cpp tests.cpp
 OBJ_DIR = obj
-OBJ			:= $(patsubst ./src/%.c, $(OBJ_DIR)/%.o, $(SRCS))
+OBJS = $(patsubst %.cpp, $(OBJ_DIR)/%.o, $(SRCS))
 
-YELLOW	:= \033[1;33m
-GREEN	:= \033[1;32m
-BLUE	:= \033[1;34m
-RED		:= \033[1;31m
-RESET	:= \033[0m
-NL		:= \n
+YELLOW = \033[1;33m
+GREEN  = \033[1;32m
+RED    = \033[1;31m
+RESET  = \033[0m
+NL     = \n
 
 all: $(NAME)
 
-$(NAME): $(OBJ)
-	@$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
+$(NAME): $(OBJS)
+	@$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 	@echo "$(NL)$(GREEN)Build completed successfully: $(NAME)$(RESET)"
 
-$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
-	@mkdir -p $(dir $@)
-	@$(CC) $(CFLAGS)  -c $< -o $@
-	@echo  "$(YELLOW)Compiling source file:$(RESET) $(notdir $<)"
+$(OBJ_DIR)/%.o: %.cpp
+	@mkdir -p $(OBJ_DIR)
+	@$(CC) $(CFLAGS) -c $< -o $@
+	@echo "$(YELLOW)Compiling:$(RESET) $<"
 
 clean:
 	@echo "$(NL)$(RED)Cleaning objects...$(RESET)"
-	@rm -rf $(OBJ_DIR)
+	@$(RM) -r $(OBJ_DIR)
 
 fclean: clean
 	@echo "$(RED)Removing binary:$(RESET) $(NAME)"
 	@$(RM) $(NAME)
+
+re: fclean all
 
 .PHONY: all clean fclean re
