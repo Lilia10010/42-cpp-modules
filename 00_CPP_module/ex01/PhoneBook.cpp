@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PhoneBook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lpaula-n <lpaula-n@student.42.fr>          +#+  +:+       +#+        */
+/*   By: microbiana <microbiana@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 19:32:01 by lpaula-n          #+#    #+#             */
-/*   Updated: 2025/12/13 22:50:25 by lpaula-n         ###   ########.fr       */
+/*   Updated: 2025/12/14 18:41:43 by microbiana       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include <iomanip>
 #include <sstream>
 #include <cctype>
+#include <cstdlib>
 
 PhoneBook::PhoneBook() : count(0), oldContact(0) {}
 
@@ -63,7 +64,11 @@ std::string PhoneBook::askAndRead(const std::string &prompt) const
     while (true)
     {
         std::cout << prompt;
-        std::getline(std::cin, input);
+       if (!std::getline(std::cin, input))
+       {
+        std::cout << std::endl;
+        std::exit(0);
+       }
         
         if (!input.empty() && !isOnlyWhitespace(input))
             return (input);
@@ -80,7 +85,11 @@ std::string PhoneBook::askAndReadNumber(const std::string &prompt) const
     while (true)
     {
         std::cout << prompt;
-        std::getline(std::cin, input);
+        if(!std::getline(std::cin, input))
+        {
+            std::cout << std::endl;
+            std::exit(0);
+        }
 
         if (isValidPhoneNumber(input))
             return input;
@@ -159,7 +168,11 @@ void PhoneBook::searchContacts() const
     int index;
 
     std::cout << "Enter the index: " << std::endl;
-    std::getline(std::cin, input);
+    if(!std::getline(std::cin, input))
+    {
+        std::cout << std::endl;
+        std::exit(0);
+    }
 
     std::istringstream iss(input);
     iss >> index;
