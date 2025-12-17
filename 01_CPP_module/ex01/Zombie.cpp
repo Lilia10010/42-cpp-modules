@@ -1,27 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Zombie.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpaula-n <lpaula-n@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/14 17:21:08 by microbiana        #+#    #+#             */
-/*   Updated: 2025/12/16 21:24:24 by lpaula-n         ###   ########.fr       */
+/*   Created: 2025/12/16 22:04:48 by lpaula-n          #+#    #+#             */
+/*   Updated: 2025/12/16 22:24:31 by lpaula-n         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
+#include <iostream>
 
-Zombie* newZombie(std::string name);
-void    randomChump(std::string name);
+Zombie::Zombie(void) {}
 
-int main()
+Zombie::Zombie(std::string name) : name(name) { }
+
+Zombie::~Zombie() {
+    std::cout << "Zombie " << name << " is destroyed" << std::endl;
+}
+
+void Zombie::ennouce(void)
 {
-    Zombie* heapZombie = newZombie("heapZombie");
-    heapZombie->annouce();
-    delete heapZombie;
+    std::cout << "🧟 " << name << std::endl;
+}
 
-    randomChump("StackZombie");
-    
-    return (0);
+void    Zombie::setName(std::string name)
+{
+    this->name = name;
 }
