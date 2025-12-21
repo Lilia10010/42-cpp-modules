@@ -3,23 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   Weapon.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lpaula-n <lpaula-n@student.42.fr>          +#+  +:+       +#+        */
+/*   By: microbiana <microbiana@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/17 20:50:40 by lpaula-n          #+#    #+#             */
-/*   Updated: 2025/12/17 22:19:15 by lpaula-n         ###   ########.fr       */
+/*   Updated: 2025/12/21 13:53:09 by microbiana       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Weapon.hpp"
 
-Weapon::Weapon(std::string type) : type(type) {}
+Weapon::Weapon(std::string initialType) : weaponType(initialType) {}
 
-void Weapon::setType(std::string type)
+void Weapon::setType(std::string newType)
 {
-    this->type = type;
+    this->weaponType = newType;
 }
 
 const std::string& Weapon::getType(void) const
 {
-    return (type);    
+    return (weaponType);    
 }

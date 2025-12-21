@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   HumanB.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lpaula-n <lpaula-n@student.42.fr>          +#+  +:+       +#+        */
+/*   By: microbiana <microbiana@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/17 21:24:58 by lpaula-n          #+#    #+#             */
-/*   Updated: 2025/12/17 22:07:09 by lpaula-n         ###   ########.fr       */
+/*   Updated: 2025/12/21 14:06:15 by microbiana       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,13 @@
 class HumanB
 {
 	private:
-		Weapon*		weapon;
-		std::string	name;
+		std::string	humanName;
+		Weapon*		humanWeapon;
 
 	public:
 		HumanB(std::string name);
-		void attack() const;
 		void setWeapon(Weapon &weapon);
+		void attack(void) const;
 
 };
 
