@@ -6,7 +6,7 @@
 /*   By: microbiana <microbiana@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/27 17:53:09 by microbiana        #+#    #+#             */
-/*   Updated: 2025/12/28 16:54:10 by microbiana       ###   ########.fr       */
+/*   Updated: 2026/01/10 14:27:05 by microbiana       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ Fixed::Fixed(const float value)
 
 Fixed::Fixed(const Fixed& other)
 {
-    std::cout << "Copy constructor called";
+    std::cout << "Copy constructor called" << std::endl;
     _rawBits = other._rawBits;
 }
 
