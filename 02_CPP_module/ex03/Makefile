@@ -6,7 +6,7 @@
 #    By: microbiana <microbiana@student.42.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/01/10 14:49:10 by microbiana        #+#    #+#              #
-#    Updated: 2026/01/10 15:10:39 by microbiana       ###   ########.fr        #
+#    Updated: 2026/01/12 11:17:05 by microbiana       ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 RM = rm -f
 
-SRCS = main.cpp Fixed.cpp
+SRCS = main.cpp Fixed.cpp Point.cpp Bsp.cpp
 OBJ_DIR = obj
 OBJS = $(patsubst %.cpp, $(OBJ_DIR)/%.o, $(SRCS))
 
