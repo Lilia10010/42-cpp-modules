@@ -6,7 +6,7 @@
 /*   By: microbiana <microbiana@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/08 18:37:56 by microbiana        #+#    #+#             */
-/*   Updated: 2026/02/08 22:51:02 by microbiana       ###   ########.fr       */
+/*   Updated: 2026/02/25 09:50:25 by microbiana       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,5 +42,6 @@ int main() {
     std::cout << "============================" << std::endl;
 
     delete wrongCat;
-    return 0;
+    
+    return (0);
 }
