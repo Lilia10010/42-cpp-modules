@@ -6,7 +6,7 @@
 /*   By: microbiana <microbiana@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/08 18:38:24 by microbiana        #+#    #+#             */
-/*   Updated: 2026/02/08 18:54:11 by microbiana       ###   ########.fr       */
+/*   Updated: 2026/02/27 11:38:01 by microbiana       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,8 @@ std::string Animal::getType() const
     return (type);
 }
 
-void Animal::makeSound() const 
-{
-    std::cout << "* generic animal sound *" << std::endl;
-}
+// void Animal::makeSound() const 
+// {
+//     std::cout << "* generic animal sound *" << std::endl;
+// }
 
