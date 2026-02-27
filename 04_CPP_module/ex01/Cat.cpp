@@ -6,7 +6,7 @@
 /*   By: microbiana <microbiana@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/25 11:39:15 by microbiana        #+#    #+#             */
-/*   Updated: 2026/02/25 11:40:41 by microbiana       ###   ########.fr       */
+/*   Updated: 2026/02/27 11:25:32 by microbiana       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ Cat::~Cat()
 
 void Cat::makeSound() const
 {
-    std::cout << "Auu auu 🐕" << std::endl;
+    std::cout << "Miaaaaaaaauu 🙀" << std::endl;
 }
 
 Brain * Cat::getBrain() const

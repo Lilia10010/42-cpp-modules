@@ -6,7 +6,7 @@
 /*   By: microbiana <microbiana@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/25 11:03:51 by microbiana        #+#    #+#             */
-/*   Updated: 2026/02/27 11:24:31 by microbiana       ###   ########.fr       */
+/*   Updated: 2026/02/27 11:25:16 by microbiana       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ Dog::~Dog()
 
 void Dog::makeSound() const
 {
-    std::cout << "Auu auu 🌭" << std::endl;
+    std::cout << "Auu auu 🐩" << std::endl;
 }
 
 Brain * Dog::getBrain() const

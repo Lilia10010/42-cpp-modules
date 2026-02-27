@@ -6,7 +6,7 @@
 /*   By: microbiana <microbiana@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/25 11:40:53 by microbiana        #+#    #+#             */
-/*   Updated: 2026/02/25 12:10:29 by microbiana       ###   ########.fr       */
+/*   Updated: 2026/02/27 11:27:20 by microbiana       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ int main() {
     std::cout << "=== Test 1: Array of Animals ===" << std::endl;
 
     Animal* animals[4];
+
+    Animal a;
 
     for (int i = 0; i < 2; i++)
     {
