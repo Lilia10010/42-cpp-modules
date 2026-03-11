@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   FileReplacer.cpp                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: microbiana <microbiana@student.42.fr>      +#+  +:+       +#+        */
+/*   By: lpaula-n <lpaula-n@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/21 14:31:34 by microbiana        #+#    #+#             */
-/*   Updated: 2025/12/21 15:11:48 by microbiana       ###   ########.fr       */
+/*   Created: 2025/12/21 14:31:34 by lpaula-n        #+#    #+#             */
+/*   Updated: 2025/12/21 15:11:48 by lpaula-n       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

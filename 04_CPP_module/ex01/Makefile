@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: microbiana <microbiana@student.42.fr>      +#+  +:+       +#+         #
+#    By: lpaula-n <lpaula-n@student.42.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2026/01/10 14:49:10 by microbiana        #+#    #+#              #
-#    Updated: 2026/02/25 11:42:45 by microbiana       ###   ########.fr        #
+#    Created: 2026/01/10 14:49:10 by lpaula-n        #+#    #+#              #
+#    Updated: 2026/02/25 11:42:45 by lpaula-n       ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
