@@ -6,7 +6,7 @@
 /*   By: microbiana <microbiana@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/26 11:51:41 by microbiana        #+#    #+#             */
-/*   Updated: 2026/04/26 17:50:41 by microbiana       ###   ########.fr       */
+/*   Updated: 2026/04/26 17:51:34 by microbiana       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 #include <exception>
 
 // forward declaration to avoid cyclic include with Form
-class Form;
+class AForm;
 
 /*
     Classe Bureaucrat
@@ -52,7 +52,7 @@ public:
     void incrementGrade();
     void decrementGrade();
 
-    void signForm(Form& form);    
+    void signForm(AForm& form);    
 
     class GradeTooHighException : public std::exception {
     public:
