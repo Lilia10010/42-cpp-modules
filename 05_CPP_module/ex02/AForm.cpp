@@ -6,12 +6,17 @@
 /*   By: microbiana <microbiana@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/26 13:11:38 by microbiana        #+#    #+#             */
-/*   Updated: 2026/04/26 17:40:13 by microbiana       ###   ########.fr       */
+/*   Updated: 2026/05/23 16:07:54 by microbiana       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AForm.hpp"
 #include "Bureaucrat.hpp"
+
+AForm::AForm()
+	: _name("Default"), _isSigned(false), _gradeToSign(150), _gradeToExecute(150)
+{
+}
 
 AForm::AForm(const std::string& name, int sign, int exec)
     : _name(name), _isSigned(false), _gradeToSign(sign), _gradeToExecute(exec)

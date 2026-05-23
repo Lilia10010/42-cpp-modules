@@ -6,7 +6,7 @@
 /*   By: microbiana <microbiana@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/26 11:51:41 by microbiana        #+#    #+#             */
-/*   Updated: 2026/04/26 17:51:34 by microbiana       ###   ########.fr       */
+/*   Updated: 2026/05/23 16:16:37 by microbiana       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ public:
     void decrementGrade();
 
     void signForm(AForm& form);    
+    void executeForm(AForm const & form) const;
 
     class GradeTooHighException : public std::exception {
     public:

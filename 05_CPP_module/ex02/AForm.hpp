@@ -6,7 +6,7 @@
 /*   By: microbiana <microbiana@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/26 13:09:29 by microbiana        #+#    #+#             */
-/*   Updated: 2026/04/26 17:32:08 by microbiana       ###   ########.fr       */
+/*   Updated: 2026/05/23 16:14:37 by microbiana       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,8 @@ protected:
     const int _gradeToExecute;
 
 public:
-    // Construtor
+// Construtor
+    AForm();
     AForm(const std::string& name, int sign, int exec);
 
     // Forma Canônica
@@ -52,7 +53,7 @@ public:
     // Lógica de assinatura
     void beSigned(const Bureaucrat& b);
 
-    // 🔥 MÉTODO ABSTRATO (obrigatório nas filhas)
+
     virtual void execute(Bureaucrat const & executor) const = 0;
 
     // Exceções
